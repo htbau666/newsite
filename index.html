@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="assets/css/tailwind.css" />
 
     <link rel="stylesheet" href="assets/css/test.css" />
+    <link rel="stylesheet" href="assets/css/pop-up.css" />
     
     <!-- ==== WOW JS ==== -->
     <script src="assets/js/wow.min.js"></script>
@@ -24,6 +25,38 @@
   </head>
 
   <body>
+    <!-- === pop up === -->
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <span id="closePopup" class="close">&times;</span>
+        <img src="/assets/images/posters/WhatsApp Image 2025-02-14 at 17.02.49_c28e5a4b.jpg" alt="Advertisement">
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let popup = document.getElementById("popup");
+        let closePopup = document.getElementById("closePopup");
+    
+        // Show popup when the page loads
+        popup.style.display = "block";
+    
+        // Close when clicking the close button
+        closePopup.addEventListener("click", function () {
+          popup.style.display = "none";
+        });
+    
+        // Close when clicking anywhere outside the popup content
+        popup.addEventListener("click", function (event) {
+          if (event.target === popup) {
+            popup.style.display = "none";
+          }
+        });
+      });
+    </script>
+    
+    
+  
+    
     <!-- ====== Navbar Section Start -->
     <div class="ud-header absolute left-0 top-0 z-40 flex w-full items-center ">
       <div class="container">
@@ -71,7 +104,7 @@
                   <li class="group relative">
                     <a href="#images"
                       class="ud-menu-scroll mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-white lg:ml-7 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10">
-                      gallery
+                      Gallery
                     </a>
                   </li>
                   <li class="group relative">
@@ -80,6 +113,12 @@
                       Contact
                     </a>
                   </li>
+                  <li class="group relative">
+                    <a href="/Crackathon.html"
+                      class="ud-menu-scroll mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-white lg:ml-7 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10">
+                      Crackathon
+                    </a>
+                  </li>                  
                   <li class="relative group">
                     <a href="bloggrids.html"
                       class="flex py-2 mx-8 text-base font-medium ud-menu-scroll text-dark group-hover:text-primary dark:text-white lg:ml-7 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-body-color dark:lg:text-dark-6 xl:ml-10">
