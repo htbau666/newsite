@@ -104,7 +104,8 @@
 /* Responsive Design */
 @media (max-width: 768px) {
     .notification {
-        max-width: 95%;
+        max-width: 100%;
+        height:fit-content;
         font-size: 14px;
     }
     .notititle {
