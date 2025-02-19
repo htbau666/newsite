@@ -5,7 +5,7 @@
     isolation: isolate;
     position: relative;
     width: rem;
-    height: 8rem;
+    height: fit-content;
     background: #29292c;
     border-radius: 1rem;
     overflow: hidden;
