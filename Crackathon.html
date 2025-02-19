@@ -265,9 +265,10 @@
       color: #ffffff;
       transition: all 0.4s ease;
       position: absolute;
-      right: 18px;
+      right: 35px;
       bottom: 14px;
       text-align: center;
+      
     }
     
     .label .title:last-child {
@@ -586,10 +587,10 @@
 
           </div>
         </div>
-       <!-- <div class="containers" data-w-id="5c5fcc39-752c-9f30-8adb-04ce69f855e7"
+        <div class="containers" data-w-id="5c5fcc39-752c-9f30-8adb-04ce69f855e7"
         style="transform: translate3d(0, 50px, 0); opacity: 0; width: 100%; margin-top: 20px;">
           <label class="label">
-            <input type="checkbox" class="input" />
+            <input type="checkbox" class="input" disabled />
             <span class="circle">
               <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
@@ -597,12 +598,12 @@
               </svg>
               <div class="square"></div>
             </span>
-            <p class="title">Download</p>
+            <p class="title">EASY</p>
             <p class="title">Open</p>
           </label>
         
           <label class="label">
-            <input type="checkbox" class="input" />
+            <input type="checkbox" class="input" disabled />
             <span class="circle">
               <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
@@ -610,12 +611,12 @@
               </svg>
               <div class="square"></div>
             </span>
-            <p class="title">Download</p>
+            <p class="title">MEDIUM</p>
             <p class="title">Open</p>
           </label>
 
           <label class="label">
-            <input type="checkbox" class="input" />
+            <input type="checkbox" class="input" disabled />
             <span class="circle">
               <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
@@ -623,41 +624,50 @@
               </svg>
               <div class="square"></div>
             </span>
-            <p class="title">Download</p>
+            <p class="title">HARD</p>
+            <p class="title">Open</p>
+          </label>
+
+          <label class="label">
+            <input type="checkbox" class="input" disabled />
+            <span class="circle">
+              <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M12 19V5m0 14-4-4m4 4 4-4"></path>
+              </svg>
+              <div class="square"></div>
+            </span>
+            <p class="title">INSANE</p>
             <p class="title">Open</p>
           </label>
         </div>
         
         <script>
-          document.querySelectorAll(".label").forEach((label, index) => {
-            const checkbox = label.querySelector(".input");
-          
+          document.querySelectorAll(".input").forEach((checkbox, index) => {
+            let timeoutId;
+        
             checkbox.addEventListener("change", function () {
+              clearTimeout(timeoutId); // Clear timeout if unchecked before the delay
+        
               if (checkbox.checked) {
-                setTimeout(() => {
+                timeoutId = setTimeout(() => {
                   const link = document.createElement("a");
-          
-                  // Correct way to assign different files for three buttons
-                  if (index === 0) {
-                    link.href = "sample.txt";
-                    link.download = "sample.txt";
-                  } else if (index === 1) {
-                    link.href = "example.txt";
-                    link.download = "example.txt";
-                  } else if (index === 2) {
-                    link.href = "test.txt";
-                    link.download = "test.txt";
-                  }
-          
+        
+                  // Array containing ZIP file names
+                  const files = ["Easy.zip", "Medium.zip", "hard.zip", "insane.zip"];
+                  
+                  link.href = files[index]; // Set file link
+                  link.download = files[index]; // Set download name
+        
                   document.body.appendChild(link);
                   link.click();
                   document.body.removeChild(link);
-                }, 3500); // Matches the animation time
+                  checkbox.checked = false; // Uncheck after download
+                }, 3500); // 3.5s delay
               }
             });
           });
-          
-        </script>-->
+        </script>
         
         <div data-w-id="5c5fcc39-752c-9f30-8adb-04ce69f855e7"
           style="transform: translate3d(0, 50px, 0); opacity: 0; width: 100%; margin-top: 20px;">
@@ -724,7 +734,7 @@
       const timer = setInterval(updateCountdown, 1000);
     }
     
-    const targetDate = new Date(2025, 1, 18, 23, 59, 37); // 18 Feb 2025, 23:59:37
+    const targetDate = new Date(2025, 1, 19, 10, 00, 00); // 18 Feb 2025, 23:59:37
     startCountdown(targetDate);
     
   </script>
@@ -734,7 +744,7 @@
     particlesJS("particles-js", {
       particles: {
         number: {
-          value: 40,
+          value: 90,
           density: {
             enable: true,
             value_area: 800
@@ -759,7 +769,7 @@
           }
         },
         opacity: {
-          value: 1,
+          value: 10000000000000000000000000000000000000000000000,
           random: true,
           anim: {
             enable: true,
