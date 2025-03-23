@@ -960,6 +960,42 @@
 
       <!-- ====== All Scripts -->
       <script src="assets/js/main.js"></script>
+      <script>
+        // Disable right-click context menu silently
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // Disable common keyboard shortcuts for developer tools silently
+        document.addEventListener('keydown', function(e) {
+            // Ctrl+Shift+I (Inspect Element in Chrome)
+            if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+                e.preventDefault();
+            }
+            // Ctrl+Shift+J (Console in Chrome)
+            if (e.ctrlKey && e.shiftKey && e.key === 'J') {
+                e.preventDefault();
+            }
+            // Ctrl+Shift+C (Inspect Element cursor in Chrome)
+            if (e.ctrlKey && e.shiftKey && e.key === 'C') {
+                e.preventDefault();
+            }
+            // F12 (Developer Tools in most browsers)
+            if (e.key === 'F12') {
+                e.preventDefault();
+            }
+            // Ctrl+U (View Source in most browsers)
+            if (e.ctrlKey && e.key === 'U') {
+                e.preventDefault();
+            }
+        });
+
+        // Ensure text remains selectable
+        document.addEventListener('selectstart', function(e) {
+            // Allow text selection
+            return true;
+        });
+    </script>
     </body>
 
   </html>
