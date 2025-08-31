@@ -1,3 +1,5 @@
+<img src="./assets/images/image.png" a width="500">
+
 # Cybersecurity Club Website
 
 This repository contains the source code for the student-run cybersecurity club website, a platform to foster skills in ethical hacking, penetration testing, and cybersecurity through hands-on challenges, workshops, and events.
